@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#eaf3ef">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="睡眠周期">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta
+      name="description"
+      content="输入已入睡时间，按 90 分钟睡眠周期计算 1 到 7 个起床节点。"
+    >
+    <title>睡眠周期计算器</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel" aria-labelledby="app-title">
+        <p class="eyebrow">90 分钟睡眠尺</p>
+        <h1 id="app-title">从入睡时刻，找到清醒节点。</h1>
+        <p class="intro">
+          输入一个 24 小时制时间。每个刻度是一轮完整睡眠周期，醒在刻度上通常更清醒。
+        </p>
+
+        <form class="time-form" id="sleep-form" novalidate>
+          <fieldset>
+            <legend>已入睡时间</legend>
+            <div class="time-fields" role="group" aria-label="已入睡时间">
+              <label>
+                <span>时</span>
+                <input
+                  id="hour-input"
+                  name="hour"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  max="23"
+                  value="07"
+                  aria-describedby="time-error"
+                >
+              </label>
+              <span class="time-separator" aria-hidden="true">:</span>
+              <label>
+                <span>分</span>
+                <input
+                  id="minute-input"
+                  name="minute"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  max="59"
+                  value="30"
+                  aria-describedby="time-error"
+                >
+              </label>
+            </div>
+            <p class="form-error" id="time-error" role="alert" aria-live="polite"></p>
+          </fieldset>
+        </form>
+
+        <div class="summary-strip" aria-live="polite">
+          <span>输入</span>
+          <strong id="sleep-time">07:30</strong>
+          <span>开始计算</span>
+        </div>
+      </section>
+
+      <section class="ruler-panel" aria-labelledby="ruler-title">
+        <div class="ruler-heading">
+          <div>
+            <p class="eyebrow">wake nodes</p>
+            <h2 id="ruler-title">各节点起床时间</h2>
+          </div>
+          <p>每 90 分钟一轮</p>
+        </div>
+
+        <ol class="sleep-ruler" id="results-list"></ol>
+
+        <section class="advice-panel" aria-labelledby="advice-title">
+          <h2 id="advice-title">选择建议</h2>
+          <div class="advice-grid">
+            <article>
+              <span>1-2 周期</span>
+              <p>只补一小觉，白天还要继续安排事情时优先看这些节点。</p>
+            </article>
+            <article class="advice-featured">
+              <span>5 周期</span>
+              <p>通常是深度补觉的首选，醒来更清爽，也不容易耽误晚上犯困。</p>
+            </article>
+            <article class="advice-caution">
+              <span>7 周期</span>
+              <p>超过这个节点再起，晚上可能会失眠到后半夜。</p>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

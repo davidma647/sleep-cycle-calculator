@@ -1,0 +1,26 @@
+{
+  "name": "睡眠周期计算器",
+  "short_name": "睡眠周期",
+  "description": "输入已入睡时间，按 90 分钟睡眠周期计算起床节点。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eaf3ef",
+  "theme_color": "#eaf3ef",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
